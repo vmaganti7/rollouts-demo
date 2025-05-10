@@ -16,7 +16,7 @@ metadata:
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - host: blue-green.xfm.sws.siemens.com
+  - host: blue-green-preview.xfm.sws.siemens.com
     http:
       paths:
       - path: /
