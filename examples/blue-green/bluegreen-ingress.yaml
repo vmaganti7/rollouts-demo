@@ -4,15 +4,15 @@ metadata:
   name: bluegreen-demo
   annotations:
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '10'
-    alb.ingress.kubernetes.io/load-balancer-name: blue-green-demo
     alb.ingress.kubernetes.io/group-name: blue-green
     alb.ingress.kubernetes.io/healthcheck-path: /
     alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '3'
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-FS-1-2-Res-2020-10
+    alb.ingress.kubernetes.io/scheme: internal
     external-dns.alpha.kubernetes.io/hostname: blue-green.xfm.sws.siemens.com
     alb.ingress.kubernetes.io/target-group-attributes: >-
-      deregistration_delay.timeout_seconds=0,stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
+      deregistration_delay.timeout_seconds=120
     alb.ingress.kubernetes.io/target-type: ip
     kubernetes.io/ingress.class: alb
 spec:
@@ -21,7 +21,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: bluegreen-demo
