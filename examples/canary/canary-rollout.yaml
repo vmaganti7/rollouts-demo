@@ -29,11 +29,13 @@ spec:
     canary:
       canaryService: canary-demo-preview
       steps:
+      - setCanaryScale:
+            weight: 100
       - setWeight: 20
       - pause: {}
       - setWeight: 40
-      - pause: {duration: 10}
+      - pause: {}
       - setWeight: 60
-      - pause: {duration: 10}
+      - pause: {}
       - setWeight: 80
-      - pause: {duration: 10}
+      - pause: {}
