@@ -9,14 +9,14 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '3'
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-FS-1-2-Res-2020-10
-    external-dns.alpha.kubernetes.io/hostname: canary-preview.xfm.sws.siemens.com
+    external-dns.alpha.kubernetes.io/hostname: canary.xfm.sws.siemens.com
     alb.ingress.kubernetes.io/target-group-attributes: >-
       deregistration_delay.timeout_seconds=0,stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
     alb.ingress.kubernetes.io/target-type: ip
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - host: canary-preview.xfm.sws.siemens.com
+  - host: canary.xfm.sws.siemens.com
     http:
       paths:
       - path: /
