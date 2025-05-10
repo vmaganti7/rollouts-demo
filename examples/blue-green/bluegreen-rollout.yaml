@@ -16,7 +16,7 @@ spec:
         app: bluegreen-demo
     spec:
       containers:
-      - name: demo-service
+      - name: bluegreen-demo
         image: argoproj/rollouts-demo:yellow
         imagePullPolicy: Always
         ports:
@@ -30,6 +30,5 @@ spec:
   strategy:
     blueGreen:
       autoPromotionEnabled: false
-      scaleDownDelaySeconds: 1200
       activeService: blue
       previewService: green
