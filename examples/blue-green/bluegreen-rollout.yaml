@@ -30,5 +30,6 @@ spec:
   strategy:
     blueGreen:
       autoPromotionEnabled: false
+      scaleDownDelaySeconds: 1200
       activeService: bluegreen-demo
       previewService: bluegreen-demo-preview
