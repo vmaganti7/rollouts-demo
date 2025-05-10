@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bluegreen-demo
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 1
   selector:
     matchLabels:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-demo
-        image: argoproj/rollouts-demo:yellow
+        image: argoproj/rollouts-demo:blue
         imagePullPolicy: Always
         ports:
         - name: http
@@ -30,5 +30,5 @@ spec:
   strategy:
     blueGreen:
       autoPromotionEnabled: false
-      activeService: blue
-      previewService: green
+      activeService: bluegreen-demo
+      previewService: bluegreen-demo-preview
